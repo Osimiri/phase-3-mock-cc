@@ -31,15 +31,21 @@ class Restaurant:
         return self.reviews
 
     def get_average_rating(self):
-        sum = 0
+        total = 0
 
         for review in self.reviews:
-            sum += review.rating
+            total += review.rating
 
-        average = sum / len(self.reviews)   
+        average = total / len(self.reviews)   
 
-        return average 
-       
+    #METHOD ONE 
+        # return average 
+
+    #METHOD TWO
+        # return sum([review.rating for review in self.reviews]) / len(self.reviews)
+    
+    #METHOD THREE
+        return statistics.mean([review.rating for review in self.reviews])
 
     @classmethod
     def get_all_restaurants(cls):
